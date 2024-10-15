@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* General Branding */
+body {
+  @apply bg-brandBlack font-body text-brandWhite; /* Use custom brand colors */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-heading text-brandWhite; /* Apply heading font and ensure headers are white */
+}
+
+/* Utility class for balanced text wrapping */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Additional brand-specific styles */
+.brand-orange-text {
+  @apply text-brandOrange;
+}
+
+.brand-light-orange-text {
+  @apply text-brandLightOrange;
+}
+
+.brand-orange-bg {
+  @apply bg-brandOrange;
+}
+
+.brand-light-orange-bg {
+  @apply bg-brandLightOrange;
+}
+
+/* Hover effects for links */
+a {
+  @apply transition-colors duration-300;
+}
+
+a:hover {
+  @apply text-brandOrange;
+}
+
+/* Button styles */
+.btn {
+  @apply font-bold py-2 px-4 rounded transition duration-300 ease-in-out;
+}
+
+.btn-primary {
+  @apply bg-brandOrange text-brandWhite hover:bg-brandLightOrange;
+}
+
+.btn-secondary {
+  @apply bg-gray-700 text-brandWhite hover:bg-gray-800;
+}
