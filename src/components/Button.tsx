@@ -1,31 +1,28 @@
-import React from 'react';
+import React from "react";
 
 interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
+  variant?: "orange" | "white";
+  type?: "button" | "submit" | "reset";
   className?: string;
-  variant?: 'primary' | 'secondary';
-  type?: 'button' | 'submit' | 'reset';
+  style?: React.CSSProperties;
 }
 
-const Button: React.FC<ButtonProps> = ({ 
-  children, 
-  onClick, 
-  className = '', 
-  variant = 'primary',
-  type = 'button'
+const Button: React.FC<ButtonProps> = ({
+  children,
+  onClick,
+  variant = "orange",
+  type = "button",
 }) => {
-  const baseStyle = "font-bold py-2 px-4 rounded transition duration-300 ease-in-out";
-  const variantStyles = {
-    primary: "bg-brandOrange hover:bg-brandLightOrange text-white",
-    secondary: "bg-gray-700 hover:bg-gray-800 text-white"
+  const styles = {
+    orange: "bg-[#FF7800] text-[#FFFFFF]",
+    white: "bg-[#FFFFFF] text-[#FF7800]",
   };
 
-  const buttonStyle = `${baseStyle} ${variantStyles[variant]} ${className}`;
-
   return (
-    <button 
-      className={buttonStyle}
+    <button
+      className={`${styles[variant]} font-bold py-2 px-4 rounded-md transition-all duration-300 hover:opacity-90`}
       onClick={onClick}
       type={type}
     >

@@ -4,7 +4,7 @@
 
 /* General Branding */
 body {
-  @apply bg-brandBlack font-body text-brandWhite; /* Use custom brand colors */
+  @apply bg-[#140A01] font-body text-brandWhite; /* Use custom brand colors */
 }
 
 h1,

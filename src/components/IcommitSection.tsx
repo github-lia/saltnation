@@ -27,7 +27,7 @@ const IcommitSection = () => {
   };
 
   return (
-    <section id="icommits" className="min-h-screen bg-primary flex flex-col items-center justify-center px-4 py-12 md:py-20">
+    <section id="icommits" className="min-h-screen flex flex-col items-center justify-center px-4 py-12 md:py-20">
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading text-primary text-center mb-8">
         Icommit
       </h1>
