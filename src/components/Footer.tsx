@@ -45,10 +45,10 @@ const Footer = () => {
           rounded-[40px_40px_40px_40px] lg:rounded-[80px_80px_80px_80px]"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 font-body">
-            {/* Column 1 - Logo and Text */}
+            {/* Column 1 - Logo and text */}
             <div className="col-span-1 lg:col-span-5 text-center md:text-left">
               <Image
-                src="/images/logo/logomain.png"
+                src="/images/logo/whitelogo.png"
                 alt="Salt Nation Logo"
                 width={320}
                 height={38.53}
