@@ -7,6 +7,7 @@ interface ButtonProps {
   type?: "button" | "submit" | "reset";
   className?: string;
   style?: React.CSSProperties;
+  disabled?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -16,6 +17,7 @@ const Button: React.FC<ButtonProps> = ({
   type = "button",
   className = "",
   style,
+  disabled = false,
 }) => {
   const styles = {
     orange: "bg-[#FF7800] text-[#FFFFFF]",
@@ -24,10 +26,11 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={`${styles[variant]} font-bold py-2 px-4 rounded-md transition-all duration-300 hover:opacity-90 ${className}`}
+      className={`${styles[variant]} font-bold py-2 px-4 rounded-md transition-all duration-300 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
       onClick={onClick}
       type={type}
       style={style}
+      disabled={disabled}
     >
       {children}
     </button>
