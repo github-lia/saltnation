@@ -1,12 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-
 export async function POST(request: NextRequest) {
   try {
-    const { amount, frequency } = await request.json();
+    // Initialize Stripe inside the function
+    if (!process.env.STRIPE_SECRET_KEY) {
+      return NextResponse.json(
+        { error: 'Stripe configuration is missing' },
+        { status: 500 }
+      );
+    }
 
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+    
+    const { amount, frequency } = await request.json();
+    
     // Convert frequency to Stripe interval
     const getStripeInterval = (freq: string) => {
       switch (freq) {
@@ -79,5 +87,6 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
 // This code handles the creation of a Stripe checkout session for both one-time and recurring donations.
 // It determines the payment mode based on the frequency provided in the request and constructs the session configuration
