@@ -1,17 +1,22 @@
 import Image from "next/image";
+
 interface StoreButtonProps {
   icon: string;
   topText: string;
   bottomText: string;
+  className?: string;
 }
 
 export default function StoreButton({
   icon,
   topText,
   bottomText,
+  className = "",
 }: StoreButtonProps) {
   return (
-    <button className="bg-white rounded-lg w-[180px] h-[52px] flex items-center px-4">
+    <button
+      className={`bg-white rounded-lg w-[180px] h-[52px] flex items-center px-4 ${className}`}
+    >
       <Image
         src={icon}
         alt="Store Icon"

@@ -2,19 +2,12 @@
 import Button from "../components/Button";
 import { HiArrowRight } from "react-icons/hi";
 import Image from "next/image";
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import AnimatedEmojiContainer from "@/components/AnimatedEmojiContainer";
 import ImageSlider from "@/components/ImageSlider";
 import TeamSection from "@/components/TeamSection";
 import StoreButton from "@/components/StoreButton";
-import {
-  SiVisa,
-  SiStripe,
-  SiPaypal,
-  SiMastercard,
-  SiGooglepay,
-} from "react-icons/si";
+import DonationForm from "@/components/DonationForm";
 
 export default function Home() {
   return (
@@ -485,7 +478,7 @@ export default function Home() {
                 shape lives beyond the screen.
               </p>
 
-              {/* Store Buttons - Always on same line */}
+              {/* Store Buttons, they are always on same line */}
               <div className="flex space-x-2 sm:space-x-4 mb-6">
                 <div className="w-1/2 sm:w-auto">
                   <StoreButton
@@ -644,6 +637,7 @@ export default function Home() {
             className="w-full"
           />
         </div>
+
         {/* Content Container */}
         <div className="relative w-[95%] mx-auto">
           {/* Section Title with Line */}
@@ -701,97 +695,7 @@ export default function Home() {
                 <h2 className="text-4xl font-bold text-primary">
                   Support Our Mission <br /> By Giving Towards It!
                 </h2>
-                <div>
-                  <h3 className="text-xl text-white mb-4">Payment methods</h3>
-                  <div className="flex space-x-4">
-                    <SiVisa size={48} />
-                    <SiStripe size={48} />
-                    <SiPaypal size={48} />
-                    <SiMastercard size={48} />
-                    <SiGooglepay size={48} />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl text-white mb-4">
-                    Choose how much you would like to give
-                  </h3>
-                  <div className="relative w-64">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-black bg-white px-1">
-                      $
-                    </span>
-                    <input
-                      type="number"
-                      placeholder="Enter Amount"
-                      className="w-full pl-8 pr-4 py-2 rounded-lg bg-transparent border border-white text-white placeholder-white"
-                    />
-                  </div>
-                  <div className="flex gap-4 mt-4">
-                    <button className="border border-white text-white px-4 py-2 rounded-lg bg-white bg-opacity-20 hover:bg-white hover:text-black transition-all">
-                      Just Once
-                    </button>
-                    <button className="border border-white text-white px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-all">
-                      Once a Month
-                    </button>
-                    <button className="border border-white text-white px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-all">
-                      Twice a Year
-                    </button>
-                    <button className="border border-white text-white px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-all">
-                      Once a Year
-                    </button>
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl text-white mb-4">Card Details</h3>
-                  <div className="space-y-4">
-                    {/* Cardholder Name */}
-                    <div>
-                      <label className="block text-white mb-2">
-                        {"Cardholder's Name"}
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Enter name on card"
-                        className="w-full px-4 py-2 rounded-lg bg-transparent border border-white text-white placeholder-white"
-                      />
-                    </div>
-                    {/* Card Number */}
-                    <div>
-                      <label className="block text-white mb-2">
-                        Card Number
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="1234 5678 9012 3456"
-                        className="w-full px-4 py-2 rounded-lg bg-transparent border border-white text-white placeholder-white"
-                      />
-                    </div>
-                    {/* Expiry Date and CVC in one row */}
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-white mb-2">
-                          Expiry Date
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="MM/YY"
-                          className="w-full px-4 py-2 rounded-lg bg-transparent border border-white text-white placeholder-white"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-white mb-2">CVC</label>
-                        <input
-                          type="text"
-                          placeholder="123"
-                          className="w-full px-4 py-2 rounded-lg bg-transparent border border-white text-white placeholder-white"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <Button variant="orange" className="w-full sm:w-auto">
-                  Proceed To The Next Step{" "}
-                  <HiArrowRight className="inline-block ml-2" />
-                </Button>
+                <DonationForm />
               </div>
             </div>
 
@@ -849,105 +753,7 @@ export default function Home() {
               </div>
 
               {/* Payment Information */}
-              <div className="space-y-6 md:space-y-8">
-                <div>
-                  <h3 className="text-lg md:text-xl text-white mb-3 md:mb-4">
-                    Payment methods
-                  </h3>
-                  <div className="flex flex-wrap gap-4">
-                    <SiVisa size={36} className="md:text-5xl" />
-                    <SiStripe size={36} className="md:text-5xl" />
-                    <SiPaypal size={36} className="md:text-5xl" />
-                    <SiMastercard size={36} className="md:text-5xl" />
-                    <SiGooglepay size={36} className="md:text-5xl" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg md:text-xl text-white mb-3 md:mb-4">
-                    Choose how much you would like to give
-                  </h3>
-                  <div className="relative w-full max-w-xs md:max-w-sm">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-black bg-white px-1">
-                      $
-                    </span>
-                    <input
-                      type="number"
-                      placeholder="Enter Amount"
-                      className="w-full pl-8 pr-4 py-2 rounded-lg bg-transparent border border-white text-white placeholder-white"
-                    />
-                  </div>
-                  <div className="flex flex-wrap gap-2 md:gap-3 mt-3 md:mt-4">
-                    <button className="border border-white text-white px-3 py-1 text-sm md:text-base md:px-4 md:py-2 rounded-lg bg-white bg-opacity-20 hover:bg-white hover:text-black transition-all">
-                      Just Once
-                    </button>
-                    <button className="border border-white text-white px-3 py-1 text-sm md:text-base md:px-4 md:py-2 rounded-lg hover:bg-white hover:text-black transition-all">
-                      Once a Month
-                    </button>
-                    <button className="border border-white text-white px-3 py-1 text-sm md:text-base md:px-4 md:py-2 rounded-lg hover:bg-white hover:text-black transition-all">
-                      Twice a Year
-                    </button>
-                    <button className="border border-white text-white px-3 py-1 text-sm md:text-base md:px-4 md:py-2 rounded-lg hover:bg-white hover:text-black transition-all">
-                      Once a Year
-                    </button>
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg md:text-xl text-white mb-3 md:mb-4">
-                    Card Details
-                  </h3>
-                  <div className="space-y-3 md:space-y-4">
-                    {/* Cardholder Name */}
-                    <div>
-                      <label className="block text-white mb-1 md:mb-2">
-                        {"Cardholder's Name"}
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Enter name on card"
-                        className="w-full px-4 py-2 rounded-lg bg-transparent border border-white text-white placeholder-white"
-                      />
-                    </div>
-                    {/* Card Number */}
-                    <div>
-                      <label className="block text-white mb-1 md:mb-2">
-                        Card Number
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="1234 5678 9012 3456"
-                        className="w-full px-4 py-2 rounded-lg bg-transparent border border-white text-white placeholder-white"
-                      />
-                    </div>
-                    {/* Expiry Date and CVC in one row */}
-                    <div className="grid grid-cols-2 gap-3 md:gap-4">
-                      <div>
-                        <label className="block text-white mb-1 md:mb-2">
-                          Expiry Date
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="MM/YY"
-                          className="w-full px-4 py-2 rounded-lg bg-transparent border border-white text-white placeholder-white"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-white mb-1 md:mb-2">
-                          CVC
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="123"
-                          className="w-full px-4 py-2 rounded-lg bg-transparent border border-white text-white placeholder-white"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <Button variant="orange" className="w-full md:w-auto">
-                  Proceed To The Next Step{" "}
-                  <HiArrowRight className="inline-block ml-2" />
-                </Button>
-              </div>
+              <DonationForm />
             </div>
           </div>
         </div>

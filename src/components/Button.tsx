@@ -2,7 +2,7 @@ import React from "react";
 
 interface ButtonProps {
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   variant?: "orange" | "white";
   type?: "button" | "submit" | "reset";
   className?: string;
@@ -14,6 +14,8 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   variant = "orange",
   type = "button",
+  className = "",
+  style,
 }) => {
   const styles = {
     orange: "bg-[#FF7800] text-[#FFFFFF]",
@@ -22,9 +24,10 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={`${styles[variant]} font-bold py-2 px-4 rounded-md transition-all duration-300 hover:opacity-90`}
+      className={`${styles[variant]} font-bold py-2 px-4 rounded-md transition-all duration-300 hover:opacity-90 ${className}`}
       onClick={onClick}
       type={type}
+      style={style}
     >
       {children}
     </button>
