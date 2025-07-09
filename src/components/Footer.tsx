@@ -48,7 +48,7 @@ const Footer = () => {
             {/* Column 1 - Logo and text */}
             <div className="col-span-1 lg:col-span-5 text-center md:text-left">
               <Image
-                src="/images/logo/whitelogo.png"
+                src="./images/logo/whitelogo.png"
                 alt="Salt Nation Logo"
                 width={320}
                 height={38.53}
