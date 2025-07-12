@@ -48,11 +48,12 @@ const Footer = () => {
             {/* Column 1 - Logo and text */}
             <div className="col-span-1 lg:col-span-5 text-center md:text-left">
               <Image
-                src="../images/logo/whitelogo.png"
+                src="/images/logo/whitelogo.png"
                 alt="Salt Nation Logo"
                 width={320}
                 height={38.53}
                 className="w-[200px] md:w-[250px] lg:w-[320px] mx-auto md:mx-0"
+                priority
               />
               <p className="mt-4 text-white">Shaping Lives, Building Futures</p>
             </div>
